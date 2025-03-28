@@ -1,0 +1,18 @@
+from ultralytics import YOLO
+import cv2
+
+# 모델 로드
+# model = YOLO('yolo11n.pt')
+model = YOLO('yolo11n-obb.pt')
+
+# 모델 예측
+results = model(
+    "https://ultralytics.com/images/boats.jpg"
+)
+
+# 결과 저장
+image = results[0].plot()
+cv2.imwrite("result_obb.jpg", image)
+
+# 9는 실행하면 boats.jpg, result_obb.jpg 가 생성되용!
+# 보트 인식해주는거 보는 코드입니다!
